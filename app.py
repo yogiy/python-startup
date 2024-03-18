@@ -1,6 +1,7 @@
 from flask import Flask
 import requests
 import json
+import os
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -24,6 +25,8 @@ signs = [
 
 @app.route("/")
 def hello():
+    k_url = os.environ.get('k_url')
+    print(k_url)
     for sign in signs:
         # get_URL = f"https://www.washingtonpost.com/entertainment/horoscopes/{sign}/"
         get_URL = f"https://www.astrotak.com/daily-horoscope/{sign}-daily-horoscope"
