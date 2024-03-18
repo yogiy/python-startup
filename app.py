@@ -48,6 +48,7 @@ def hello():
         # print(f"{sign}: {response.__dict__ }")
         print(response.status_code)
         print(response.text)
+    return "Done!!!"
 
 
 if __name__ == "__main__":
