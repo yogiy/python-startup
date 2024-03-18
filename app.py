@@ -5,7 +5,7 @@ import os
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
-post_URL = "http://www.livedinn.com/jokes_server/updatehoroscope.php"
+
 
 signs = [
     "aries",
@@ -25,11 +25,12 @@ signs = [
 
 @app.route("/")
 def hello():
-    k_url = os.environ.get('k_url')
-    print(k_url)
+    post_URL = os.environ.get('k_url')
+    g_URL = os.environ.get('g_url')
+    
     for sign in signs:
         # get_URL = f"https://www.washingtonpost.com/entertainment/horoscopes/{sign}/"
-        get_URL = f"https://www.astrotak.com/daily-horoscope/{sign}-daily-horoscope"
+        get_URL = f"{g_URL}{sign}-daily-horoscope"
 
         headers = {'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'}
         page = requests.get(get_URL)
